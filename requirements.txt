@@ -54,6 +54,7 @@ sacremoses==0.1.1
 safetensors==0.4.4
 scikit-learn==1.5.1
 scipy==1.14.0
+sentencepiece==0.2.0
 sentence-splitter==1.4
 setuptools==72.1.0
 six==1.16.0
