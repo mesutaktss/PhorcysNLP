@@ -361,7 +361,7 @@ class ProcessWithAI:
             return predicted_class
 
     @staticmethod
-    def BullyingAnalysis(modelNam="MesutAktas/TurkishBullyingAnalysis", text=None, outputFile=None, inputFile=None, labelListStatus=True, labelList=None):
+    def BullyingAnalysis(modelName="MesutAktas/TurkishBullyingAnalysis", text=None, outputFile=None, inputFile=None, labelListStatus=True, labelList=None):
 
         
         if text is None and inputFile is None:
