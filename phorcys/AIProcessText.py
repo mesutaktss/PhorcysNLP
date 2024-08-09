@@ -678,7 +678,7 @@ class ProcessWithAI:
             else:
                 return entities
     @staticmethod
-    def EntityBasedSentimentAnalysis(nerModelName='MesutAktas/TurkishNERModel', sentimentModelName='MesutAktas/TurkishDetailedEmotionAnalysis', text=None, inputFile=None, outputFile=None, labelListStatus=True, labelList=None, sentimentLabelList=None):
+    def EntityBasedSentimentAnalysis(nerModelName='MesutAktas/TurkishNERModel', sentimentModelName='MesutAktas/TurkishSimpleEmotionAnalysis', text=None, inputFile=None, outputFile=None, labelListStatus=True, labelList=None, sentimentLabelList=None):
 
         if text is None and inputFile is None:
             raise ValueError("Either 'text' or 'inputFile' must be provided.")
@@ -689,13 +689,9 @@ class ProcessWithAI:
         if labelList is not None and not isinstance(labelList, dict):
             raise ValueError("'labelList' must be a dictionary.")
         sentimentLabelList = {
-            "0": 'anger',
-            "1": 'disgust',
-            "2": 'fear',
-            "3": 'joy',
-            "4": 'neutral',
-            "5": 'sadness',
-            "6": 'surprise'
+            "0": "negative", 
+            "1": "neutral", 
+            "2": "positive"
         }
         textData = None
         if text is not None:
