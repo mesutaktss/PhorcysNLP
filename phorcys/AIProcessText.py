@@ -632,7 +632,7 @@ class ProcessWithAI:
                 try:
                     tokenizer = AutoTokenizer.from_pretrained(modelName)
                     model = AutoModelForTokenClassification.from_pretrained(modelName)
-                    ner_pipeline = pipeline("ner", model=model, tokenizer=tokenizer)
+                    ner_pipeline = pipeline("ner", model=model, tokenizer=tokenizer, aggregation_strategy="simple")
                 except Exception as e:
                     raise Exception(f"An error occurred while loading the model '{modelName}': {e}")
             
@@ -718,7 +718,7 @@ class ProcessWithAI:
                 raise Exception(f"An error occurred while extracting the NER model '{nerModelName}': {e}")
         else:
             try:
-                nerModel = pipeline('ner', model=nerModelName, tokenizer=nerModelName, device=0 if torch.cuda.is_available() else -1)
+                nerModel = pipeline('ner', model=nerModelName, tokenizer=nerModelName, aggregation_strategy="simple", device=0 if torch.cuda.is_available() else -1)
             except Exception as e:
                 raise Exception(f"An error occurred while loading the NER model '{nerModelName}': {e}")
 
